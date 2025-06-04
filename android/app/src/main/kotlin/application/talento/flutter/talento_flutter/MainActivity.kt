@@ -1,0 +1,5 @@
+package application.talento.flutter.talento_flutter
+
+import io.flutter.embedding.android.FlutterActivity
+
+class MainActivity : FlutterActivity()
