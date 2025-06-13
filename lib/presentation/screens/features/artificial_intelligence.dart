@@ -866,7 +866,7 @@ class _ArtificialIntelligenceState extends State<ArtificialIntelligence>
                         child: Container(
                           decoration: BoxDecoration(
                             color: Colors.grey[100],
-                            borderRadius: BorderRadius.circular(24),
+                            borderRadius: BorderRadius.circular(45),
                             border: Border.all(
                               color: Colors.grey[300]!,
                               width: 1.5,

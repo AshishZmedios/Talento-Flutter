@@ -273,7 +273,7 @@ class _JobDetailsScreenState extends State<JobDetailsScreen> {
                                   isReadMore
                                       ? CrossFadeState.showSecond
                                       : CrossFadeState.showFirst,
-                              duration: Duration(milliseconds: 300),
+                              duration: Duration(milliseconds: 600),
                             ),
                             getVerticalSpacer(16),
                             Center(
