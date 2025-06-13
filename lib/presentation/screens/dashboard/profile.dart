@@ -21,7 +21,6 @@ class _ProfileScreenState extends State<ProfileScreen>
   late ScrollController _scrollController;
   bool _isCollapsed = false;
   late AnimationController _animationController;
-  late Animation<double> _animation;
   String? _expandedSection;
   bool _isScrolling = false;
   late AnimationController _shimmerController;
@@ -91,11 +90,6 @@ class _ProfileScreenState extends State<ProfileScreen>
     _animationController = AnimationController(
       duration: const Duration(milliseconds: 300),
       vsync: this,
-    );
-
-    _animation = CurvedAnimation(
-      parent: _animationController,
-      curve: Curves.easeInOut,
     );
 
     _shimmerController = AnimationController(
@@ -650,93 +644,91 @@ class _ProfileScreenState extends State<ProfileScreen>
   }
 
   Widget _buildCollapsedHeader() {
-    return Container(
-      child: Row(
-        children: [
-          Hero(
-            tag: 'profile_image',
-            child: Container(
-              width: 40,
-              height: 40,
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                border: Border.all(color: AppConstants.primaryColor, width: 2),
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.black.withValues(alpha: 0.1),
-                    blurRadius: 8,
-                    spreadRadius: 1,
-                  ),
-                ],
-              ),
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(20),
-                child: Container(
-                  decoration: BoxDecoration(
-                    image: DecorationImage(
-                      image:
-                          _profileImage != null
-                              ? FileImage(File(_profileImage!.path))
-                              : AssetImage(AppConstants.iconLogo1)
-                                  as ImageProvider,
-                      fit: BoxFit.cover,
-                    ),
-                  ),
-                ),
-              ),
-            ),
-          ),
-          getHorizontalSpacer(12),
-          Expanded(
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  "Ashish Kumar",
-                  style: TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.grey[800],
-                  ),
-                ),
-                Row(
-                  children: [
-                    Container(
-                      padding: EdgeInsets.symmetric(horizontal: 8, vertical: 2),
-                      decoration: BoxDecoration(
-                        color: AppConstants.primaryColor.withValues(alpha: 0.1),
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      child: Text(
-                        "Senior Product Developer",
-                        style: TextStyle(
-                          fontSize: 12,
-                          color: AppConstants.primaryColor,
-                          fontWeight: FontWeight.w500,
-                        ),
-                      ),
-                    ),
-                    getHorizontalSpacer(8),
-                    Container(
-                      padding: EdgeInsets.all(4),
-                      decoration: BoxDecoration(
-                        color: Colors.green.withValues(alpha: 0.1),
-                        shape: BoxShape.circle,
-                      ),
-                      child: Icon(
-                        Icons.check_circle,
-                        size: 12,
-                        color: Colors.green,
-                      ),
-                    ),
-                  ],
+    return Row(
+      children: [
+        Hero(
+          tag: 'profile_image',
+          child: Container(
+            width: 40,
+            height: 40,
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              border: Border.all(color: AppConstants.primaryColor, width: 2),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black.withValues(alpha: 0.1),
+                  blurRadius: 8,
+                  spreadRadius: 1,
                 ),
               ],
             ),
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(20),
+              child: Container(
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                    image:
+                        _profileImage != null
+                            ? FileImage(File(_profileImage!.path))
+                            : AssetImage(AppConstants.iconLogo1)
+                                as ImageProvider,
+                    fit: BoxFit.cover,
+                  ),
+                ),
+              ),
+            ),
           ),
-        ],
-      ),
+        ),
+        getHorizontalSpacer(12),
+        Expanded(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                "Ashish Kumar",
+                style: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.grey[800],
+                ),
+              ),
+              Row(
+                children: [
+                  Container(
+                    padding: EdgeInsets.symmetric(horizontal: 8, vertical: 2),
+                    decoration: BoxDecoration(
+                      color: AppConstants.primaryColor.withValues(alpha: 0.1),
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: Text(
+                      "Senior Product Developer",
+                      style: TextStyle(
+                        fontSize: 12,
+                        color: AppConstants.primaryColor,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                  ),
+                  getHorizontalSpacer(8),
+                  Container(
+                    padding: EdgeInsets.all(4),
+                    decoration: BoxDecoration(
+                      color: Colors.green.withValues(alpha: 0.1),
+                      shape: BoxShape.circle,
+                    ),
+                    child: Icon(
+                      Icons.check_circle,
+                      size: 12,
+                      color: Colors.green,
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ),
+      ],
     );
   }
 }
