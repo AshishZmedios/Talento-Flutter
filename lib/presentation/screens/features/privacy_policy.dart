@@ -47,7 +47,7 @@ class _PrivacyPolicyScreenState extends State<PrivacyPolicyScreen> {
         borderRadius: BorderRadius.circular(16),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.05),
+            color: Colors.black.withValues(alpha: 0.05),
             blurRadius: 10,
             offset: Offset(0, 2),
           ),
@@ -71,7 +71,7 @@ class _PrivacyPolicyScreenState extends State<PrivacyPolicyScreen> {
                 Container(
                   padding: EdgeInsets.all(8),
                   decoration: BoxDecoration(
-                    color: Colors.white.withOpacity(0.2),
+                    color: Colors.white.withValues(alpha: 0.2),
                     borderRadius: BorderRadius.circular(12),
                   ),
                   child: Icon(icon, color: Colors.white, size: 20),
@@ -114,7 +114,7 @@ class _PrivacyPolicyScreenState extends State<PrivacyPolicyScreen> {
           backgroundColor: Colors.white,
           elevation: _showElevation ? 2 : 0,
           leading: Padding(
-            padding: EdgeInsets.only(left: 8),
+            padding: EdgeInsets.only(left: 0),
             child: ModernBackButton(onPressed: () => moveToPreviousScreen()),
           ),
           title: Text(

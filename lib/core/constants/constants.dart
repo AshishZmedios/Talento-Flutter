@@ -38,7 +38,7 @@ class AppConstants {
   static const String artificialIntelligenceScreen = "AI Help$_screenSuffix";
 
   // Colors
-  static const Color primaryColor = Color(0xFF888FEF);
+  static const Color primaryColor = kWarningColor;
   static const Color kPrimaryColor = Color(0xFF7C4DFF);
   static const Color kSecondaryColor = Color(0xFFFF4B8A);
   static const Color kAccentColor = Color(0xFFFFB300);
@@ -47,6 +47,23 @@ class AppConstants {
   static const Color kCardColor = Color(0xFFFFFFFF);
   static const Color kTextColor = Color(0xFF2D3142);
   static const Color kTextSecondary = Color(0xFF6B7280);
+  static const Color kColorGreen = Color(0xFF49EF14);
+  static const Color kColorGreen1 = Color(0xFF5CAA43);
+  static const Color kColorGreen12 = Color(0xFF113704);
+  static const Color kColorRed1 = Color(0xFFD52D2D);
+  static const Color kBackgroundColor = Color(0xFFF5F5F5); // light grey
+  static const Color kSubTextColor = Color(0xFF757575); // medium grey
+  static const Color kBorderColor = Color(0xFFE0E0E0); // light border
+  static const Color kSuccessColor = Color(0xFF4CAF50); // green
+  static const Color kWarningColor = Color(0xFFFFC107); // amber
+  static const Color kErrorColor = Color(0xFFF44336); // red
+  static const Color kInfoColor = Color(0xFF2196F3); // blue
+  static const Color kLightPrimaryColor = Color(0xFFD1C4E9); // light purple
+  static const Color kDarkPrimaryColor = Color(0xFF512DA8); // deep purple
+  static const Color kLightSecondaryColor = Color(0xFFFFCDD2); // light pink
+  static const Color kDarkSecondaryColor = Color(0xFFC2185B); // deep pink
+  static const Color kAccentLightColor = Color(0xFFFFF8E1); // light amber
+  static const Color kAccentDarkColor = Color(0xFFFF6F00); // dark amber
 
   // Icons
   static const String iconPrefix = "assets/images/";

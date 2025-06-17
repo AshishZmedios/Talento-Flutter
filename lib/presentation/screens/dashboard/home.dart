@@ -95,14 +95,17 @@ class _HomeScreenState extends State<HomeScreen>
           Container(
             decoration: BoxDecoration(
               gradient: LinearGradient(
-                colors: [Color(0xFF6C63FF), Color(0xFF584DFF)],
+                colors: [
+                  AppConstants.primaryColor,
+                  AppConstants.primaryColor.withValues(alpha: 0.5),
+                ],
                 begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
               ),
               borderRadius: BorderRadius.circular(24),
               boxShadow: [
                 BoxShadow(
-                  color: Color(0xFF6C63FF).withValues(alpha: 0.3),
+                  color: AppConstants.primaryColor.withValues(alpha: 0.3),
                   blurRadius: 20,
                   offset: Offset(0, 10),
                 ),

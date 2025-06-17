@@ -255,9 +255,7 @@ class _JobsScreenState extends State<JobsScreen> with TickerProviderStateMixin {
     return TimeTracker(
       screenName: AppConstants.jobsScreen,
       child: Scaffold(
-        backgroundColor: Theme
-            .of(context)
-            .scaffoldBackgroundColor,
+        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
         body: Stack(
           children: [
             RefreshIndicator(
@@ -280,7 +278,7 @@ class _JobsScreenState extends State<JobsScreen> with TickerProviderStateMixin {
                       collapsedHeight: collapsedHeight,
                       elevation: _isCollapsed ? 0 : 0,
                       backgroundColor:
-                      _isCollapsed ? Colors.white : Colors.transparent,
+                          _isCollapsed ? Colors.white : Colors.transparent,
                       leading: IconButton(
                         icon: Container(
                           padding: EdgeInsets.all(10),
@@ -338,15 +336,17 @@ class _JobsScreenState extends State<JobsScreen> with TickerProviderStateMixin {
                         ],
                       ),
                       flexibleSpace: LayoutBuilder(
-                        builder: (BuildContext context,
-                            BoxConstraints constraints,) {
+                        builder: (
+                          BuildContext context,
+                          BoxConstraints constraints,
+                        ) {
                           final double currentHeight = constraints.maxHeight;
                           final double welcomeOpacity =
-                          _isCollapsed
-                              ? 0.0
-                              : ((currentHeight - collapsedHeight) /
-                              (expandedHeight - collapsedHeight))
-                              .clamp(0.0, 1.0);
+                              _isCollapsed
+                                  ? 0.0
+                                  : ((currentHeight - collapsedHeight) /
+                                          (expandedHeight - collapsedHeight))
+                                      .clamp(0.0, 1.0);
 
                           return FlexibleSpaceBar(
                             background: Stack(
@@ -378,34 +378,34 @@ class _JobsScreenState extends State<JobsScreen> with TickerProviderStateMixin {
                         },
                       ),
                       bottom:
-                      _isCollapsed
-                          ? PreferredSize(
-                        preferredSize: Size.fromHeight(61),
-                        child: Column(
-                          children: [
-                            Container(
-                              color: Colors.white,
-                              padding: EdgeInsets.all(8),
-                              child: _buildSearchBox(),
-                            ),
-                            Container(
-                              height: 1,
-                              decoration: BoxDecoration(
-                                gradient: LinearGradient(
-                                  colors: [
-                                    Colors.transparent,
-                                    Colors.grey.withValues(alpha: 0.1),
-                                    Colors.grey.withValues(alpha: 0.1),
-                                    Colors.transparent,
+                          _isCollapsed
+                              ? PreferredSize(
+                                preferredSize: Size.fromHeight(61),
+                                child: Column(
+                                  children: [
+                                    Container(
+                                      color: Colors.white,
+                                      padding: EdgeInsets.all(8),
+                                      child: _buildSearchBox(),
+                                    ),
+                                    Container(
+                                      height: 1,
+                                      decoration: BoxDecoration(
+                                        gradient: LinearGradient(
+                                          colors: [
+                                            Colors.transparent,
+                                            Colors.grey.withValues(alpha: 0.1),
+                                            Colors.grey.withValues(alpha: 0.1),
+                                            Colors.transparent,
+                                          ],
+                                          stops: [0.0, 0.2, 0.8, 1.0],
+                                        ),
+                                      ),
+                                    ),
                                   ],
-                                  stops: [0.0, 0.2, 0.8, 1.0],
                                 ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      )
-                          : null,
+                              )
+                              : null,
                     ),
                     if (_isRefreshing)
                       SliverToBoxAdapter(child: _buildRefreshIndicator()),
@@ -463,14 +463,17 @@ class _JobsScreenState extends State<JobsScreen> with TickerProviderStateMixin {
       height: 180,
       decoration: BoxDecoration(
         gradient: LinearGradient(
-          colors: [Color(0xFF6C63FF), Color(0xFF584DFF)],
+          colors: [
+            AppConstants.primaryColor,
+            AppConstants.primaryColor.withValues(alpha: 0.5),
+          ],
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
         ),
         borderRadius: BorderRadius.circular(24),
         boxShadow: [
           BoxShadow(
-            color: Color(0xFF6C63FF).withValues(alpha: 0.4),
+            color: AppConstants.primaryColor.withValues(alpha: 0.4),
             blurRadius: 20,
             offset: Offset(0, 10),
           ),
@@ -547,9 +550,9 @@ class _JobsScreenState extends State<JobsScreen> with TickerProviderStateMixin {
         color: Colors.white,
         borderRadius: BorderRadius.circular(16),
         border:
-        _isCollapsed
-            ? Border.all(color: Colors.grey[200]!, width: 1.5)
-            : null,
+            _isCollapsed
+                ? Border.all(color: Colors.grey[200]!, width: 1.5)
+                : null,
         boxShadow: [
           BoxShadow(
             color: Colors.black.withValues(alpha: 0.15),
@@ -590,29 +593,31 @@ class _JobsScreenState extends State<JobsScreen> with TickerProviderStateMixin {
       scrollDirection: Axis.horizontal,
       child: Row(
         children:
-        _filters.map((filter) {
-          final isSelected = _selectedFilter == filter;
-          return Padding(
-            padding: EdgeInsets.only(right: 8),
-            child: FilterChip(
-              selected: isSelected,
-              label: Text(filter),
-              labelStyle: TextStyle(
-                color: isSelected ? Colors.white : Colors.grey[700],
-                fontWeight:
-                isSelected ? FontWeight.bold : FontWeight.normal,
-              ),
-              backgroundColor: Colors.grey[100],
-              selectedColor: Color(0xFF7067FA).withValues(alpha: 0.5),
-              onSelected: (selected) {
-                setState(() => _selectedFilter = filter);
-              },
-              shape: StadiumBorder(),
-              elevation: isSelected ? 2 : 0,
-              padding: EdgeInsets.symmetric(horizontal: 12, vertical: 8),
-            ),
-          );
-        }).toList(),
+            _filters.map((filter) {
+              final isSelected = _selectedFilter == filter;
+              return Padding(
+                padding: EdgeInsets.only(right: 8),
+                child: FilterChip(
+                  selected: isSelected,
+                  label: Text(filter),
+                  labelStyle: TextStyle(
+                    color: isSelected ? Colors.white : Colors.grey[700],
+                    fontWeight:
+                        isSelected ? FontWeight.bold : FontWeight.normal,
+                  ),
+                  backgroundColor: Colors.grey[100],
+                  selectedColor: AppConstants.primaryColor.withValues(
+                    alpha: 0.5,
+                  ),
+                  onSelected: (selected) {
+                    setState(() => _selectedFilter = filter);
+                  },
+                  shape: StadiumBorder(),
+                  elevation: isSelected ? 2 : 0,
+                  padding: EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                ),
+              );
+            }).toList(),
       ),
     );
   }
@@ -620,11 +625,10 @@ class _JobsScreenState extends State<JobsScreen> with TickerProviderStateMixin {
   Widget _buildJobsList() {
     return SliverList(
       delegate: SliverChildBuilderDelegate(
-            (context, index) =>
-            FadeTransition(
-              opacity: _fadeAnimation,
-              child: _buildJobCard(context, index),
-            ),
+        (context, index) => FadeTransition(
+          opacity: _fadeAnimation,
+          child: _buildJobCard(context, index),
+        ),
         childCount: 10,
       ),
     );
@@ -683,8 +687,7 @@ class _JobsScreenState extends State<JobsScreen> with TickerProviderStateMixin {
                     IconButton(
                       icon: Icon(Icons.bookmark_border),
                       onPressed:
-                          () =>
-                          Utils.showSnackBar(
+                          () => Utils.showSnackBar(
                             context,
                             "Job saved successfully",
                           ),
@@ -738,13 +741,6 @@ class _JobsScreenState extends State<JobsScreen> with TickerProviderStateMixin {
           color: AppConstants.primaryColor.withValues(alpha: 0.2),
           width: 1.5,
         ),
-        boxShadow: [
-          BoxShadow(
-            color: AppConstants.primaryColor.withValues(alpha: 0.8),
-            blurRadius: 8,
-            offset: Offset(0, 2),
-          ),
-        ],
       ),
       child: ClipRRect(
         borderRadius: BorderRadius.circular(8),

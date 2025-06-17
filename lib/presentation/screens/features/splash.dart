@@ -76,7 +76,10 @@ class _SplashScreenState extends State<SplashScreen>
         body: Container(
           decoration: BoxDecoration(
             gradient: LinearGradient(
-              colors: [Color(0xFF6C63FF), Color(0xFF776FF1)],
+              colors: [
+                AppConstants.primaryColor,
+                AppConstants.primaryColor.withValues(alpha: 0.5)
+              ],
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
             ),
@@ -93,7 +96,7 @@ class _SplashScreenState extends State<SplashScreen>
                     height: 200,
                     decoration: BoxDecoration(
                       shape: BoxShape.circle,
-                      color: Colors.white.withValues(alpha: 0.1),
+                      color: Colors.white.withValues(alpha: 0.2),
                     ),
                   ),
                 ),
@@ -105,7 +108,7 @@ class _SplashScreenState extends State<SplashScreen>
                     height: 150,
                     decoration: BoxDecoration(
                       shape: BoxShape.circle,
-                      color: Colors.white.withValues(alpha: 0.1),
+                      color: Colors.white.withValues(alpha: 0.2),
                     ),
                   ),
                 ),
@@ -153,7 +156,7 @@ class _SplashScreenState extends State<SplashScreen>
                                 child: Container(
                                   padding: EdgeInsets.all(20),
                                   decoration: BoxDecoration(
-                                    color: Colors.white.withValues(alpha: 0.1),
+                                    color: Colors.white.withValues(alpha: 0.2),
                                     borderRadius: BorderRadius.circular(30),
                                   ),
                                   child: Image.asset(
