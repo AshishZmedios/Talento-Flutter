@@ -38,7 +38,7 @@ class AppConstants {
   static const String artificialIntelligenceScreen = "AI Help$_screenSuffix";
 
   // Colors
-  static const Color primaryColor = kWarningColor;
+  static const Color primaryColor = Color(0xFF888FEF);
   static const Color kPrimaryColor = Color(0xFF7C4DFF);
   static const Color kSecondaryColor = Color(0xFFFF4B8A);
   static const Color kAccentColor = Color(0xFFFFB300);
