@@ -101,6 +101,7 @@ class AppConstants {
 
   // Used in shared preferences
   static const String isLogin = "isLoggedIn";
+  static const String hasShownAiIntro = "hasShownAiIntro";
 
   // Used as key to send arguments
   static const String argumnetMobileEmail = "mobileEmail";

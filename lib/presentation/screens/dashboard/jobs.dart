@@ -142,7 +142,7 @@ class _JobsScreenState extends State<JobsScreen> with TickerProviderStateMixin {
 
   Future<void> _checkAndShowIntroDialog() async {
     final prefs = await SharedPreferences.getInstance();
-    final hasShown = prefs.getBool('has_shown_ai_intro') ?? false;
+    final hasShown = prefs.getBool(AppConstants.hasShownAiIntro) ?? false;
 
     if (!hasShown && mounted) {
       setState(() => _hasShownIntro = true);
@@ -154,7 +154,7 @@ class _JobsScreenState extends State<JobsScreen> with TickerProviderStateMixin {
         _introAnimationController.reverse().then((_) {
           setState(() => _hasShownIntro = false);
         });
-        prefs.setBool('has_shown_ai_intro', true);
+        prefs.setBool(AppConstants.hasShownAiIntro, true);
       }
     }
   }
